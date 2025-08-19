@@ -1,0 +1,355 @@
+asyncapi: 3.0.0
+info:
+  title: MT4 API
+  version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  development:
+    host: localhost:4222
+    protocol: nats
+    description: Development NATS server
+
+operations:
+  'Open trade request':
+    action: send
+    description: |
+      This operation sends a request to open a new trading order in MT4.
+      The request includes details such as the user login, trading symbol, command type, volume, stop loss, take profit, and an optional comment.
+    channel:
+      messages:
+        OpenTradeRequest:
+          $ref: "#/components/messages/OpenTradeRequest"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_open_trade_request'
+
+  'Close trade request':
+    action: send
+    description: |
+      This operation sends a request to close an existing trading order in MT4.
+      The request includes details such as the user login, order ID, and an optional comment.
+    channel:
+      messages:
+        CloseTradeRequest:
+          $ref: "#/components/messages/CloseTradeRequest"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_close_trade_request'
+
+  'Trade response':
+    action: receive
+    description: |
+      This operation sends a response to an order execution request.
+      The response includes the request ID, order ID, error code, and error message.
+      It indicates whether the order was successfully executed or if there were any errors.
+    channel:
+      messages:
+        TradeResponse:
+          $ref: "#/components/messages/TradeResponse"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_trade_response'
+
+  'New tick':
+    action: receive
+    description: |
+      This operation sends a notification about a new market tick.
+      The notification includes the symbol, bid price, ask price, and tick time.
+    channel:
+      messages:
+        NewTick:
+          $ref: "#/components/messages/NewTick"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_new_tick'
+
+  'New candle':
+    action: receive
+    description: |
+      This operation sends a notification about a new market candle.
+      The notification includes the symbol, open price, close price, high price, low price, and candle time.
+    channel:
+      messages:
+        NewCandle:
+          $ref: "#/components/messages/NewCandle"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_new_candle'
+
+  'Symbol update':
+    action: receive
+    description: |
+      This operation sends a notification about a symbol update.
+    channel:
+      messages:
+        SymbolUpdate:
+          $ref: "#/components/messages/SymbolUpdate"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_symbol_update'
+
+components:
+  messages:
+    OpenTradeRequest:
+      name: openTradeRequest
+      title: Open Trade Request
+      contentType: application/json
+      summary: Request to open a new trading order
+      description: Contains all the necessary information to open a new trading order
+      payload:
+        type: object
+        required:
+          - request_id
+          - login
+          - symbol
+          - cmd
+          - volume
+        properties:
+          request_id:
+            $ref: "#/components/schemas/request_id"
+          login:
+            $ref: "#/components/schemas/login"
+          symbol:
+            $ref: "#/components/schemas/symbol"
+          cmd:
+            type: string
+            enum: [BUY, SELL]
+            description: |
+              Order command type:
+              BUY - Market buy
+              SELL - Market sell
+            example: BUY
+          volume:
+            $ref: "#/components/schemas/volume"
+          sl:
+            type: number
+            format: double
+            description: Stop loss price
+            example: 1.09500
+          tp:
+            type: number
+            format: double
+            description: Take profit price
+            example: 1.12000
+          comment:
+            type: string
+            description: Order comment
+            example: "My best trade"
+            maxLength: 32
+
+    CloseTradeRequest:
+      name: closeTradeRequest
+      title: Close Trade Request
+      contentType: application/json
+      summary: Request to close an existing trading order
+      description: Contains the necessary information to close an existing trading order
+      payload:
+        type: object
+        required:
+          - request_id
+          - login
+          - order_id
+        properties:
+          request_id:
+            $ref: "#/components/schemas/request_id"
+          login:
+            $ref: "#/components/schemas/login"
+          order_id:
+            $ref: "#/components/schemas/order_id"
+
+    TradeResponse:
+      name: tradeResponse
+      title: Trade Response
+      contentType: application/json
+      summary: Response to an order execution request
+      description: Contains the result of the order execution request including order id, status, and execution details
+      payload:
+        type: object
+        required:
+          - request_id
+          - order_id
+          - errorCode
+          - errorMessage
+        properties:
+          request_id:
+            $ref: "#/components/schemas/request_id"
+          order_id:
+            $ref: "#/components/schemas/order_id"
+          errorCode:
+            type: integer
+            description: Error code (0 for success, non-zero for errors)
+            example: 0
+            default: 0
+          errorMessage:
+            type: string
+            description: Error message
+            example: "Invalid request"
+
+    NewTick:
+      name: newTick
+      title: New Tick
+      contentType: application/json
+      summary: Notification of a new market tick
+      description: Contains the latest market tick information
+      payload:
+        type: object
+        required:
+          - symbol
+          - bid
+          - ask
+          - ts
+        properties:
+          symbol:
+            $ref: "#/components/schemas/symbol"
+          bid:
+            type: number
+            format: double
+            description: Latest bid price
+            example: 1.09500
+          ask:
+            type: number
+            format: double
+            description: Latest ask price
+            example: 1.09550
+          ts:
+            type: integer
+            description: Timestamp of the tick (Unix epoch time)
+            example: 1696166400
+
+    NewCandle:
+      name: newCandle
+      title: New Candle
+      contentType: application/json
+      summary: Notification of a new market candle
+      description: Contains the latest market candle information
+      payload:
+        type: object
+        required:
+          - symbol
+          - open
+          - close
+          - high
+          - low
+          - ts
+        properties:
+          symbol:
+            $ref: "#/components/schemas/symbol"
+          open:
+            type: number
+            format: double
+            description: Open price of the candle
+            example: 1.09500
+          close:
+            type: number
+            format: double
+            description: Close price of the candle
+            example: 1.09550
+          high:
+            type: number
+            format: double
+            description: High price of the candle
+            example: 1.09600
+          low:
+            type: number
+            format: double
+            description: Low price of the candle
+            example: 1.09400
+          ts:
+            type: integer
+            description: Timestamp of the candle (Unix epoch time)
+            example: 1696166400
+
+    SymbolUpdate:
+      name: symbolUpdate
+      title: Symbol Update
+      contentType: application/json
+      summary: Notification of a symbol update
+      description: Contains the latest market data for a specific symbol
+      payload:
+        type: object
+        required:
+          - account_group
+          - symbol
+          - digits
+          - mode
+          - contract_size
+          - tick_size
+          - swap_long
+          - swap_short
+          - lot_min
+          - lot_max
+          - lot_step
+        properties:
+          account_group:
+            type: string
+            description: Account group associated with the symbol
+            example: "group1"
+          symbol:
+            $ref: "#/components/schemas/symbol"
+          digits:
+            type: integer
+            description: Number of decimal places for the symbol
+            example: 5
+          mode:
+            type: string
+            enum: [DISABLED, CLOSE_ONLY, FULL, LONG_ONLY]
+            description: |
+              Order command type:
+              DISABLED - No trading allowed
+              CLOSE_ONLY - Accepts only close orders
+              FULL - Full trading permissions
+              LONG_ONLY - Long positions only
+            example: FULL
+          contract_size:
+            type: number
+            description: Contract size for the symbol
+            example: 100000
+          tick_size:
+            type: number
+            description: Minimum price movement for the symbol
+            example: 0.00001
+          swap_long:
+            type: number
+            description: Swap rate for long positions
+            example: 0.0001
+          swap_short:
+            type: number
+            description: Swap rate for short positions
+            example: 0.0001
+          lot_min:
+            type: number
+            description: Minimum lot size for the symbol
+            example: 1.0
+          lot_max:
+            type: number
+            description: Maximum lot size for the symbol
+            example: 10.0
+          lot_step:
+            type: number
+            description: Lot size step for the symbol
+            example: 0.1
+
+  schemas:
+    request_id:
+      type: integer
+      description: Unique identifier for the request
+      example: 123456
+    order_id:
+      type: integer
+      description: Unique identifier for the order
+      example: 654321
+    login:
+      type: integer
+      description: User login ID
+      example: 12345
+    symbol:
+      type: string
+      description: Trading instrument symbol
+      example: "EURUSD"
+    volume:
+      type: integer
+      description: Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100
+      example: 100

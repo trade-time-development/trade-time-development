@@ -183,6 +183,44 @@ components:
             description: Error code (0 for success, non-zero for errors)
             example: 0
             default: 0
+            enum:
+              - 0    # RET_OK - Request completed successfully
+              - 2    # RET_ERROR - General error
+              - 3    # RET_INVALID_DATA - Invalid information
+              - 4    # RET_TECH_PROBLEM - Technical error on server
+              - 5    # RET_OLD_VERSION - Old terminal version
+              - 6    # RET_NO_CONNECT - No connection
+              - 7    # RET_NOT_ENOUGH_RIGHTS - Not enough rights to perform operation
+              - 8    # RET_TOO_FREQUENT - Requests are too frequent
+              - 9    # RET_MALFUNCTION - Operation cannot be performed
+              - 10   # RET_GENERATE_KEY - Key generation required
+              - 11   # RET_SECURITY_SESSION - Connection using extended authentication
+              - 15   # RET_INVALID_COMPANY - Company name does not match license or White Label
+              - 64   # RET_ACCOUNT_DISABLED - Account disabled
+              - 65   # RET_BAD_ACCOUNT_INFO - Invalid account information
+              - 128  # RET_TRADE_TIMEOUT - Request timeout
+              - 129  # RET_TRADE_BAD_PRICES - Invalid price
+              - 130  # RET_TRADE_BAD_STOPS - Invalid stop levels
+              - 131  # RET_TRADE_BAD_VOLUME - Invalid volume
+              - 132  # RET_TRADE_MARKET_CLOSED - Market closed
+              - 133  # RET_TRADE_DISABLE - Trading disabled
+              - 134  # RET_TRADE_NO_MONEY - Not enough money
+              - 135  # RET_TRADE_PRICE_CHANGED - Price changed
+              - 136  # RET_TRADE_OFFQUOTES - No quotes
+              - 137  # RET_TRADE_BROKER_BUSY - Broker busy
+              - 138  # RET_TRADE_REQUOTE - Requote
+              - 139  # RET_TRADE_ORDER_LOCKED - Order locked by dealer
+              - 140  # RET_TRADE_LONG_ONLY - Only long orders allowed
+              - 141  # RET_TRADE_TOO_MANY_REQ - Too many trade requests
+              - 142  # RET_TRADE_ACCEPTED - Request accepted
+              - 143  # RET_TRADE_PROCESS - Request accepted by dealer
+              - 144  # RET_TRADE_USER_CANCEL - Request canceled by user
+              - 145  # RET_TRADE_MODIFY_DENIED - Modify denied (too close to market)
+              - 146  # RET_TRADE_CONTEXT_BUSY - Trade context busy
+              - 147  # RET_TRADE_EXPIRATION_DENIED - Expiration denied
+              - 148  # RET_TRADE_TOO_MANY_ORDERS - Too many orders
+              - 149  # RET_TRADE_HEDGE_PROHIBITED - Hedging prohibited
+              - 150  # RET_TRADE_PROHIBITED_BY_FIFO - Prohibited by FIFO rule
           errorMessage:
             type: string
             description: Error message
@@ -215,9 +253,7 @@ components:
             description: Latest ask price
             example: 1.09550
           ts:
-            type: integer
-            description: Timestamp of the tick (Unix epoch time)
-            example: 1696166400
+            $ref: "#/components/schemas/timestamp"
 
     NewCandle:
       name: newCandle
@@ -258,9 +294,7 @@ components:
             description: Low price of the candle
             example: 1.09400
           ts:
-            type: integer
-            description: Timestamp of the candle (Unix epoch time)
-            example: 1696166400
+            $ref: "#/components/schemas/timestamp"
 
     SymbolUpdate:
       name: symbolUpdate
@@ -295,9 +329,10 @@ components:
             example: 5
           mode:
             type: string
-            enum: [DISABLED, CLOSE_ONLY, FULL, LONG_ONLY]
+            enum: [HIDDEN, DISABLED, CLOSE_ONLY, FULL, LONG_ONLY]
             description: |
               Order command type:
+              HIDDEN - Symbol hidden from the market
               DISABLED - No trading allowed
               CLOSE_ONLY - Accepts only close orders
               FULL - Full trading permissions
@@ -336,7 +371,8 @@ components:
     request_id:
       type: integer
       description: Unique identifier for the request
-      example: 123456
+      format: uint16
+      example: 65535
     order_id:
       type: integer
       description: Unique identifier for the order
@@ -353,3 +389,7 @@ components:
       type: integer
       description: Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100
       example: 100
+    timestamp:
+      type: integer
+      description: Timestamp of the tick (Unix epoch time)
+      example: 1696166400

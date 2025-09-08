@@ -155,37 +155,37 @@ components:
             example: "My best trade"
             maxLength: 32
 
-  TradeRequestModify:
-    name: TradeRequestModify
-    title: Modify Trade Request
-    contentType: application/json
-    summary: Request to modify an existing trading order
-    description: Contains the necessary information to modify an existing trading order
-    payload:
-      type: object
-      required:
-        - request_id
-        - login
-        - order_id
-        - sl
-        - tp
-      properties:
-        request_id:
-          $ref: "#/components/schemas/request_id"
-        login:
-          $ref: "#/components/schemas/login"
-        order_id:
-          $ref: "#/components/schemas/order_id"
-        sl:
-          type: number
-          format: double
-          description: New stop loss price, should be zero if not set
-          example: 0.0
-        tp:
-          type: number
-          format: double
-          description: New take profit price, should be zero if not set
-          example: 1.12000
+    TradeRequestModify:
+      name: TradeRequestModify
+      title: Modify Trade Request
+      contentType: application/json
+      summary: Request to modify an existing trading order
+      description: Contains the necessary information to modify an existing trading order
+      payload:
+        type: object
+        required:
+          - request_id
+          - login
+          - order_id
+          - sl
+          - tp
+        properties:
+          request_id:
+            $ref: "#/components/schemas/request_id"
+          login:
+            $ref: "#/components/schemas/login"
+          order_id:
+            $ref: "#/components/schemas/order_id"
+          sl:
+            type: number
+            format: double
+            description: New stop loss price, should be zero if not set
+            example: 0.0
+          tp:
+            type: number
+            format: double
+            description: New take profit price, should be zero if not set
+            example: 1.12000
 
     TradeRequestClose:
       name: TradeRequestClose

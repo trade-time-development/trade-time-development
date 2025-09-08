@@ -20,11 +20,24 @@ operations:
       The request includes details such as the user login, trading symbol, command type, volume, stop loss, take profit, and an optional comment.
     channel:
       messages:
-        OpenTradeRequest:
-          $ref: "#/components/messages/OpenTradeRequest"
+        TradeRequestOpen:
+          $ref: "#/components/messages/TradeRequestOpen"
       bindings:
         nats:
           queue: '{server_name}.mt4_open_trade_request'
+
+  'Modify trade request':
+    action: send
+    description: |
+      This operation sends a request to modify an existing trading order in MT4.
+      The request includes details such as the user login, order ID, new stop loss, new take profit.
+    channel:
+      messages:
+        TradeRequestModify:
+          $ref: "#/components/messages/TradeRequestModify"
+      bindings:
+        nats:
+          queue: '{server_name}.mt4_modify_trade_request'
 
   'Close trade request':
     action: send
@@ -33,8 +46,8 @@ operations:
       The request includes details such as the user login, order ID, and an optional comment.
     channel:
       messages:
-        CloseTradeRequest:
-          $ref: "#/components/messages/CloseTradeRequest"
+        TradeRequestClose:
+          $ref: "#/components/messages/TradeRequestClose"
       bindings:
         nats:
           queue: '{server_name}.mt4_close_trade_request'
@@ -93,8 +106,8 @@ operations:
 
 components:
   messages:
-    OpenTradeRequest:
-      name: openTradeRequest
+    TradeRequestOpen:
+      name: TradeRequestOpen
       title: Open Trade Request
       contentType: application/json
       summary: Request to open a new trading order
@@ -107,6 +120,8 @@ components:
           - symbol
           - cmd
           - volume
+          - sl
+          - tp
         properties:
           request_id:
             $ref: "#/components/schemas/request_id"
@@ -127,12 +142,12 @@ components:
           sl:
             type: number
             format: double
-            description: Stop loss price
-            example: 1.09500
+            description: Stop loss price, should be zero if not set
+            example: 0.0
           tp:
             type: number
             format: double
-            description: Take profit price
+            description: Take profit price, should be zero if not set
             example: 1.12000
           comment:
             type: string
@@ -140,8 +155,40 @@ components:
             example: "My best trade"
             maxLength: 32
 
-    CloseTradeRequest:
-      name: closeTradeRequest
+  TradeRequestModify:
+    name: TradeRequestModify
+    title: Modify Trade Request
+    contentType: application/json
+    summary: Request to modify an existing trading order
+    description: Contains the necessary information to modify an existing trading order
+    payload:
+      type: object
+      required:
+        - request_id
+        - login
+        - order_id
+        - sl
+        - tp
+      properties:
+        request_id:
+          $ref: "#/components/schemas/request_id"
+        login:
+          $ref: "#/components/schemas/login"
+        order_id:
+          $ref: "#/components/schemas/order_id"
+        sl:
+          type: number
+          format: double
+          description: New stop loss price, should be zero if not set
+          example: 0.0
+        tp:
+          type: number
+          format: double
+          description: New take profit price, should be zero if not set
+          example: 1.12000
+
+    TradeRequestClose:
+      name: TradeRequestClose
       title: Close Trade Request
       contentType: application/json
       summary: Request to close an existing trading order
@@ -164,13 +211,17 @@ components:
       name: tradeResponse
       title: Trade Response
       contentType: application/json
-      summary: Response to an order execution request
+      summary: Response to an order execution request (NewOrder, UpdateOrder, DeleteOrder)
       description: Contains the result of the order execution request including order id, status, and execution details
       payload:
         type: object
         required:
           - request_id
           - order_id
+          - price
+          - volume
+          - commission
+          - conv_rate
           - errorCode
           - errorMessage
         properties:
@@ -178,6 +229,14 @@ components:
             $ref: "#/components/schemas/request_id"
           order_id:
             $ref: "#/components/schemas/order_id"
+          price:
+            $ref: "#/components/schemas/price"
+          volume:
+            $ref: "#/components/schemas/volume"
+          commission:
+            $ref: "#/components/schemas/commission"
+          conv_rate:
+            $ref: "#/components/schemas/conv_rate"
           errorCode:
             type: integer
             description: Error code (0 for success, non-zero for errors)
@@ -224,7 +283,7 @@ components:
           errorMessage:
             type: string
             description: Error message
-            example: "Invalid request"
+            example: "Some error message for the internal usage"
 
     NewTick:
       name: newTick
@@ -389,6 +448,21 @@ components:
       type: integer
       description: Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100
       example: 100
+    price:
+      type: number
+      format: double
+      description: Price value
+      example: 1.09500
+    commission:
+      type: number
+      format: double
+      description: Commission value
+      example: 2.5
+    conv_rate:
+      type: number
+      format: double
+      description: Symbol price conversion rate to account currency
+      example: 1.0
     timestamp:
       type: integer
       description: Timestamp of the tick (Unix epoch time)

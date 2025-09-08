@@ -18,10 +18,10 @@ The request includes details such as the user login, trading symbol, command typ
 </div></div><div class="mt-2"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">login</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>User login ID</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">symbol</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Trading instrument symbol</p>
-</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">cmd</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
-BUY - Market buy
-SELL - Market sell</p>
-</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;BUY&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;SELL&quot;</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
+</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">cmd</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
+0 - Market buy
+1 - Market sell</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">sl</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Stop loss price, should be zero if not set</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">tp</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Take profit price, should be zero if not set</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">comment</span></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"><span class="bg-purple-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">&lt;= 32 characters</span></div><div><div class="prose max-w-none text-sm"><p>Order comment</p>
@@ -29,7 +29,7 @@ SELL - Market sell</p>
   <span class="hljs-attr">"request_id"</span>: <span class="hljs-number">65535</span>,
   <span class="hljs-attr">"login"</span>: <span class="hljs-number">12345</span>,
   <span class="hljs-attr">"symbol"</span>: <span class="hljs-string">"EURUSD"</span>,
-  <span class="hljs-attr">"cmd"</span>: <span class="hljs-string">"BUY"</span>,
+  <span class="hljs-attr">"cmd"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"volume"</span>: <span class="hljs-number">100</span>,
   <span class="hljs-attr">"sl"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"tp"</span>: <span class="hljs-number">1.12</span>,
@@ -68,7 +68,11 @@ The request includes details such as the user login, order ID, and an optional c
 The response includes the request ID, order ID, error code, and error message.
 It indicates whether the order was successfully executed or if there were any errors.</p>
 </div></div><div class="border bg-gray-100 rounded px-4 py-2 mt-2"><div class="text-sm text-gray-700">Operation ID<span class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">Trade response</span></div></div><div class="mt-2 text-sm"><p>Available only on servers:</p><ul class="flex flex-wrap leading-normal"><li class="inline-block mt-2 mr-2"><a href="#server-development" class="border border-solid border-blue-300 hover:bg-blue-300 hover:text-blue-600 text-blue-500 font-bold no-underline text-xs rounded px-3 py-1 cursor-pointer"><span class="underline">development</span></a></li></ul></div><div class="mt-2" id="operation-receive--security"></div><div class="mt-2"><div><div class="flex py-2"><div class=" mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><div class="inline-block text-sm"><span>Channel specific information</span><span class="bg-teal-500 font-bold no-underline text-white uppercase rounded mx-2 px-2 py-1 text-xs">nats</span></div></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">queue</span></div><div><div class="text-sm">{server_name}.mt4_trade_response</div></div></div></div></div></div></div><div class="mt-2"></div><div class="mt-2"></div></div><div class="w-full mt-4" id="operation-receive--message"><div class="mt-2"><p class="px-8">Accepts the following message:</p><div class="mt-2"><div class="panel-item"><div class="panel-item--center px-8"><div class="shadow rounded bg-gray-200 p-4 border"><div><span class="text-gray-700 mr-2">Trade Response</span><span class="border text-orange-600 rounded text-xs py-0 px-2">TradeResponse</span></div><p class="text-gray-600 text-sm">Response to an order execution request (NewOrder, UpdateOrder, DeleteOrder)</p><ul class="leading-normal mt-2 mb-4 space-x-2 space-y-2"><li class="inline-block"><a href="https://www.iana.org/assignments/media-types/application/json" class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1" target="_blank" rel="nofollow noopener noreferrer"><span>application/json</span></a></li></ul><div class="border bg-gray-100 rounded px-4 py-2 mt-2"><div class="text-sm text-gray-700">Message ID<span class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">TradeResponse</span></div></div><div class="mt-2"><div class="prose max-w-none text-sm"><p>Contains the result of the order execution request including order id, status, and execution details</p>
-</div></div><div class="mt-2"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
+</div></div><div class="mt-2"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">type</span></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order type:
+0 - New order
+1 - Modify order
+2 - Close order</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>2</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">order_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the order</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">price</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Price value</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
@@ -77,6 +81,7 @@ It indicates whether the order was successfully executed or if there were any er
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">errorCode</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Error code (0 for success, non-zero for errors)</p>
 </div></div><div class="text-xs">Default value:<span class="border inline-block text-orange-600 rounded ml-1 py-0 px-2">0</span></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>2</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>3</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>4</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>5</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>6</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>7</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>8</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>9</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>10</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>11</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>15</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>64</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>65</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>128</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>129</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>130</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>131</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>132</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>133</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>134</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>135</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>136</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>137</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>138</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>139</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>140</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>141</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>142</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>143</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>144</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>145</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>146</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>147</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>148</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>149</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>150</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">errorMessage</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Error message</p>
 </div></div></div></div></div></div><p class="mt-2 text-xs text-gray-700">Additional properties are allowed.</p></div></div></div></div></div><div class="panel-item--right px-8"><div class="bg-gray-800 px-8 py-4 mt-4 -mx-8 2xl:mx-0 2xl:px-4 2xl:rounded examples"><h4 class="text-white text-lg">Examples</h4><div class="mt-4"><div><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="inline-block w-20 py-0.5 mr-1 text-gray-200 text-sm border text-center rounded focus:outline-none">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  fill-current text-gray-200"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button></div><div class="hidden"><div class="mt-4"><div class="prose max-w-none text-sm"><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"type"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"request_id"</span>: <span class="hljs-number">65535</span>,
   <span class="hljs-attr">"order_id"</span>: <span class="hljs-number">654321</span>,
   <span class="hljs-attr">"price"</span>: <span class="hljs-number">1.095</span>,
@@ -124,13 +129,13 @@ The notification includes the symbol, open price, close price, high price, low p
 </div></div><div class="mt-2"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">account_group</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Account group associated with the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">symbol</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Trading instrument symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">digits</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Number of decimal places for the symbol</p>
-</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">mode</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
-HIDDEN - Symbol hidden from the market
-DISABLED - No trading allowed
-CLOSE_ONLY - Accepts only close orders
-FULL - Full trading permissions
-LONG_ONLY - Long positions only</p>
-</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;HIDDEN&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;DISABLED&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;CLOSE_ONLY&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;FULL&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;LONG_ONLY&quot;</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">contract_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Contract size for the symbol</p>
+</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">mode</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
+0 - Symbol hidden from the market
+1 - No trading allowed
+2 - Accepts only close orders
+3 - Full trading permissions
+4 - Long positions only</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>2</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>3</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>4</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">contract_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Contract size for the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">tick_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Minimum price movement for the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">swap_long</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Swap rate for long positions</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">swap_short</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Swap rate for short positions</p>
@@ -141,7 +146,7 @@ LONG_ONLY - Long positions only</p>
   <span class="hljs-attr">"account_group"</span>: <span class="hljs-string">"group1"</span>,
   <span class="hljs-attr">"symbol"</span>: <span class="hljs-string">"EURUSD"</span>,
   <span class="hljs-attr">"digits"</span>: <span class="hljs-number">5</span>,
-  <span class="hljs-attr">"mode"</span>: <span class="hljs-string">"FULL"</span>,
+  <span class="hljs-attr">"mode"</span>: <span class="hljs-number">0</span>,
   <span class="hljs-attr">"contract_size"</span>: <span class="hljs-number">100000</span>,
   <span class="hljs-attr">"tick_size"</span>: <span class="hljs-number">0.00001</span>,
   <span class="hljs-attr">"swap_long"</span>: <span class="hljs-number">0.0001</span>,
@@ -155,10 +160,10 @@ LONG_ONLY - Long positions only</p>
 </div></div><div class="mt-2" id="message-TradeRequestOpen-payload"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">login</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>User login ID</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">symbol</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Trading instrument symbol</p>
-</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">cmd</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
-BUY - Market buy
-SELL - Market sell</p>
-</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;BUY&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;SELL&quot;</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
+</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">cmd</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
+0 - Market buy
+1 - Market sell</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">sl</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Stop loss price, should be zero if not set</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">tp</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Take profit price, should be zero if not set</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">comment</span></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"><span class="bg-purple-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">&lt;= 32 characters</span></div><div><div class="prose max-w-none text-sm"><p>Order comment</p>
@@ -173,7 +178,11 @@ SELL - Market sell</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">login</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>User login ID</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">order_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the order</p>
 </div></div></div></div></div></div><p class="mt-2 text-xs text-gray-700">Additional properties are allowed.</p></div></div></div></div></div></div></li><li class="mb-4" id="message-TradeResponse"><div class="panel-item"><div class="panel-item--center px-8"><div class="shadow rounded bg-gray-200 p-4 border"><div><span class="text-gray-700 font-bold mr-2">#<!-- -->4</span><span class="text-gray-700 mr-2">Trade Response</span><span class="border text-orange-600 rounded text-xs py-0 px-2">TradeResponse</span></div><p class="text-gray-600 text-sm">Response to an order execution request (NewOrder, UpdateOrder, DeleteOrder)</p><ul class="leading-normal mt-2 mb-4 space-x-2 space-y-2"><li class="inline-block"><a href="https://www.iana.org/assignments/media-types/application/json" class="border border-solid border-orange-300 hover:bg-orange-300 hover:text-orange-600 text-orange-500 font-bold no-underline text-xs uppercase rounded px-3 py-1" target="_blank" rel="nofollow noopener noreferrer"><span>application/json</span></a></li></ul><div class="border bg-gray-100 rounded px-4 py-2 mt-2"><div class="text-sm text-gray-700">Message ID<span class="border text-orange-600 rounded text-xs ml-2 py-0 px-2">TradeResponse</span></div></div><div class="mt-2"><div class="prose max-w-none text-sm"><p>Contains the result of the order execution request including order id, status, and execution details</p>
-</div></div><div class="mt-2" id="message-TradeResponse-payload"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
+</div></div><div class="mt-2" id="message-TradeResponse-payload"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">type</span></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order type:
+0 - New order
+1 - Modify order
+2 - Close order</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>2</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">request_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->uint16</span></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the request</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">order_id</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Unique identifier for the order</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">price</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"><span class="bg-yellow-600 font-bold no-underline text-white rounded lowercase mr-2 p-1 text-xs">format: <!-- -->double</span></div><div><div class="prose max-w-none text-sm"><p>Price value</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">volume</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order volume in lots * 100, e.g., 0.01 lot = 1, 1 lot = 100</p>
@@ -197,13 +206,13 @@ SELL - Market sell</p>
 </div></div><div class="mt-2" id="message-SymbolUpdate-payload"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><button class="focus:outline-none undefined" type="button"><div class="inline-block"><span class="break-anywhere text-sm ">Payload</span></div><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg" class="inline-block align-baseline cursor-pointer ml-0.5 -mb-1 w-5 h-5 transform transition-transform duration-150 ease-linear  "><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg></button><button type="button" class="ml-1 text-sm text-gray-500">Expand all</button></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">object</div><div class="inline-block"></div></div></div></div><div class="rounded p-4 py-2 border bg-gray-100  hidden"><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">account_group</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Account group associated with the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">symbol</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Trading instrument symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">digits</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Number of decimal places for the symbol</p>
-</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">mode</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">string</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
-HIDDEN - Symbol hidden from the market
-DISABLED - No trading allowed
-CLOSE_ONLY - Accepts only close orders
-FULL - Full trading permissions
-LONG_ONLY - Long positions only</p>
-</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;HIDDEN&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;DISABLED&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;CLOSE_ONLY&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;FULL&quot;</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>&quot;LONG_ONLY&quot;</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">contract_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Contract size for the symbol</p>
+</div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">mode</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">integer</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Order command type:
+0 - Symbol hidden from the market
+1 - No trading allowed
+2 - Accepts only close orders
+3 - Full trading permissions
+4 - Long positions only</p>
+</div></div><ul class="text-xs">Allowed values:<!-- --> <li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>0</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>1</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>2</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>3</span></li><li class="border inline-block text-orange-600 rounded ml-1 py-0 px-2"><span>4</span></li></ul></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">contract_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Contract size for the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">tick_size</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Minimum price movement for the symbol</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">swap_long</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Swap rate for long positions</p>
 </div></div></div></div></div></div><div><div class="flex py-2"><div class="min-w-1/4 mr-2"><span class="break-anywhere text-sm italic">swap_short</span><div class="text-red-600 text-xs">required</div></div><div><div><div class="capitalize text-sm text-teal-500 font-bold inline-block mr-2">number</div><div class="inline-block"></div><div><div class="prose max-w-none text-sm"><p>Swap rate for short positions</p>
@@ -285,13 +294,13 @@ LONG_ONLY - Long positions only</p>
                   "x-parser-schema-id": "symbol"
                 },
                 "cmd": {
-                  "type": "string",
+                  "type": "integer",
                   "enum": [
-                    "BUY",
-                    "SELL"
+                    0,
+                    1
                   ],
-                  "description": "Order command type:\nBUY - Market buy\nSELL - Market sell\n",
-                  "example": "BUY",
+                  "description": "Order command type:\n0 - Market buy\n1 - Market sell\n",
+                  "example": 0,
                   "x-parser-schema-id": "<anonymous-schema-2>"
                 },
                 "volume": {
@@ -452,6 +461,17 @@ LONG_ONLY - Long positions only</p>
                 "errorMessage"
               ],
               "properties": {
+                "type": {
+                  "type": "integer",
+                  "enum": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "description": "Order type:\n0 - New order\n1 - Modify order\n2 - Close order\n",
+                  "example": 0,
+                  "x-parser-schema-id": "<anonymous-schema-11>"
+                },
                 "request_id": "$ref:$.operations.Open trade request.channel.messages.TradeRequestOpen.payload.properties.request_id",
                 "order_id": "$ref:$.operations.Modify trade request.channel.messages.TradeRequestModify.payload.properties.order_id",
                 "price": {
@@ -520,13 +540,13 @@ LONG_ONLY - Long positions only</p>
                     149,
                     150
                   ],
-                  "x-parser-schema-id": "<anonymous-schema-11>"
+                  "x-parser-schema-id": "<anonymous-schema-12>"
                 },
                 "errorMessage": {
                   "type": "string",
                   "description": "Error message",
                   "example": "Some error message for the internal usage",
-                  "x-parser-schema-id": "<anonymous-schema-12>"
+                  "x-parser-schema-id": "<anonymous-schema-13>"
                 }
               },
               "x-parser-schema-id": "<anonymous-schema-10>"
@@ -568,14 +588,14 @@ LONG_ONLY - Long positions only</p>
                   "format": "double",
                   "description": "Latest bid price",
                   "example": 1.095,
-                  "x-parser-schema-id": "<anonymous-schema-14>"
+                  "x-parser-schema-id": "<anonymous-schema-15>"
                 },
                 "ask": {
                   "type": "number",
                   "format": "double",
                   "description": "Latest ask price",
                   "example": 1.0955,
-                  "x-parser-schema-id": "<anonymous-schema-15>"
+                  "x-parser-schema-id": "<anonymous-schema-16>"
                 },
                 "ts": {
                   "type": "integer",
@@ -584,7 +604,7 @@ LONG_ONLY - Long positions only</p>
                   "x-parser-schema-id": "timestamp"
                 }
               },
-              "x-parser-schema-id": "<anonymous-schema-13>"
+              "x-parser-schema-id": "<anonymous-schema-14>"
             },
             "x-parser-unique-object-id": "NewTick"
           }
@@ -625,32 +645,32 @@ LONG_ONLY - Long positions only</p>
                   "format": "double",
                   "description": "Open price of the candle",
                   "example": 1.095,
-                  "x-parser-schema-id": "<anonymous-schema-17>"
+                  "x-parser-schema-id": "<anonymous-schema-18>"
                 },
                 "close": {
                   "type": "number",
                   "format": "double",
                   "description": "Close price of the candle",
                   "example": 1.0955,
-                  "x-parser-schema-id": "<anonymous-schema-18>"
+                  "x-parser-schema-id": "<anonymous-schema-19>"
                 },
                 "high": {
                   "type": "number",
                   "format": "double",
                   "description": "High price of the candle",
                   "example": 1.096,
-                  "x-parser-schema-id": "<anonymous-schema-19>"
+                  "x-parser-schema-id": "<anonymous-schema-20>"
                 },
                 "low": {
                   "type": "number",
                   "format": "double",
                   "description": "Low price of the candle",
                   "example": 1.094,
-                  "x-parser-schema-id": "<anonymous-schema-20>"
+                  "x-parser-schema-id": "<anonymous-schema-21>"
                 },
                 "ts": "$ref:$.operations.New tick.channel.messages.NewTick.payload.properties.ts"
               },
-              "x-parser-schema-id": "<anonymous-schema-16>"
+              "x-parser-schema-id": "<anonymous-schema-17>"
             },
             "x-parser-unique-object-id": "NewCandle"
           }
@@ -694,72 +714,72 @@ LONG_ONLY - Long positions only</p>
                   "type": "string",
                   "description": "Account group associated with the symbol",
                   "example": "group1",
-                  "x-parser-schema-id": "<anonymous-schema-22>"
+                  "x-parser-schema-id": "<anonymous-schema-23>"
                 },
                 "symbol": "$ref:$.operations.Open trade request.channel.messages.TradeRequestOpen.payload.properties.symbol",
                 "digits": {
                   "type": "integer",
                   "description": "Number of decimal places for the symbol",
                   "example": 5,
-                  "x-parser-schema-id": "<anonymous-schema-23>"
+                  "x-parser-schema-id": "<anonymous-schema-24>"
                 },
                 "mode": {
-                  "type": "string",
+                  "type": "integer",
                   "enum": [
-                    "HIDDEN",
-                    "DISABLED",
-                    "CLOSE_ONLY",
-                    "FULL",
-                    "LONG_ONLY"
+                    0,
+                    1,
+                    2,
+                    3,
+                    4
                   ],
-                  "description": "Order command type:\nHIDDEN - Symbol hidden from the market\nDISABLED - No trading allowed\nCLOSE_ONLY - Accepts only close orders\nFULL - Full trading permissions\nLONG_ONLY - Long positions only\n",
-                  "example": "FULL",
-                  "x-parser-schema-id": "<anonymous-schema-24>"
+                  "description": "Order command type:\n0 - Symbol hidden from the market\n1 - No trading allowed\n2 - Accepts only close orders\n3 - Full trading permissions\n4 - Long positions only\n",
+                  "example": 0,
+                  "x-parser-schema-id": "<anonymous-schema-25>"
                 },
                 "contract_size": {
                   "type": "number",
                   "description": "Contract size for the symbol",
                   "example": 100000,
-                  "x-parser-schema-id": "<anonymous-schema-25>"
+                  "x-parser-schema-id": "<anonymous-schema-26>"
                 },
                 "tick_size": {
                   "type": "number",
                   "description": "Minimum price movement for the symbol",
                   "example": 0.00001,
-                  "x-parser-schema-id": "<anonymous-schema-26>"
+                  "x-parser-schema-id": "<anonymous-schema-27>"
                 },
                 "swap_long": {
                   "type": "number",
                   "description": "Swap rate for long positions",
                   "example": 0.0001,
-                  "x-parser-schema-id": "<anonymous-schema-27>"
+                  "x-parser-schema-id": "<anonymous-schema-28>"
                 },
                 "swap_short": {
                   "type": "number",
                   "description": "Swap rate for short positions",
                   "example": 0.0001,
-                  "x-parser-schema-id": "<anonymous-schema-28>"
+                  "x-parser-schema-id": "<anonymous-schema-29>"
                 },
                 "lot_min": {
                   "type": "number",
                   "description": "Minimum lot size for the symbol",
                   "example": 1,
-                  "x-parser-schema-id": "<anonymous-schema-29>"
+                  "x-parser-schema-id": "<anonymous-schema-30>"
                 },
                 "lot_max": {
                   "type": "number",
                   "description": "Maximum lot size for the symbol",
                   "example": 10,
-                  "x-parser-schema-id": "<anonymous-schema-30>"
+                  "x-parser-schema-id": "<anonymous-schema-31>"
                 },
                 "lot_step": {
                   "type": "number",
                   "description": "Lot size step for the symbol",
                   "example": 0.1,
-                  "x-parser-schema-id": "<anonymous-schema-31>"
+                  "x-parser-schema-id": "<anonymous-schema-32>"
                 }
               },
-              "x-parser-schema-id": "<anonymous-schema-21>"
+              "x-parser-schema-id": "<anonymous-schema-22>"
             },
             "x-parser-unique-object-id": "SymbolUpdate"
           }

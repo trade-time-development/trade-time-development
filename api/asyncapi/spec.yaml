@@ -130,13 +130,13 @@ components:
           symbol:
             $ref: "#/components/schemas/symbol"
           cmd:
-            type: string
-            enum: [BUY, SELL]
+            type: integer
+            enum: [0, 1]
             description: |
               Order command type:
-              BUY - Market buy
-              SELL - Market sell
-            example: BUY
+              0 - Market buy
+              1 - Market sell
+            example: 0
           volume:
             $ref: "#/components/schemas/volume"
           sl:
@@ -225,6 +225,15 @@ components:
           - errorCode
           - errorMessage
         properties:
+          type:
+            type: integer
+            enum: [0, 1, 2]
+            description: |
+              Order type:
+              0 - New order
+              1 - Modify order
+              2 - Close order
+            example: 0
           request_id:
             $ref: "#/components/schemas/request_id"
           order_id:
@@ -387,16 +396,16 @@ components:
             description: Number of decimal places for the symbol
             example: 5
           mode:
-            type: string
-            enum: [HIDDEN, DISABLED, CLOSE_ONLY, FULL, LONG_ONLY]
+            type: integer
+            enum: [0, 1, 2, 3, 4]
             description: |
               Order command type:
-              HIDDEN - Symbol hidden from the market
-              DISABLED - No trading allowed
-              CLOSE_ONLY - Accepts only close orders
-              FULL - Full trading permissions
-              LONG_ONLY - Long positions only
-            example: FULL
+              0 - Symbol hidden from the market
+              1 - No trading allowed
+              2 - Accepts only close orders
+              3 - Full trading permissions
+              4 - Long positions only
+            example: 0
           contract_size:
             type: number
             description: Contract size for the symbol

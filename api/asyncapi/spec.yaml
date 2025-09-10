@@ -206,6 +206,8 @@ components:
             $ref: "#/components/schemas/login"
           order_id:
             $ref: "#/components/schemas/order_id"
+          volume:
+            $ref: "#/components/schemas/volume"
 
     TradeResponse:
       name: tradeResponse
